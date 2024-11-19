@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -14,10 +15,13 @@ import com.squareup.picasso.Picasso
 class adapterRecView(private val listWayang: ArrayList<wayang>) : RecyclerView
 .Adapter<adapterRecView.ListViewHolder>() {
 
+
     private lateinit var onItemclickCallback: OnItemClickCallback
 
     interface OnItemClickCallback {
         fun onItemClicked(data: wayang)
+
+        fun delData(pos: Int)
 
     }
 
@@ -26,7 +30,7 @@ class adapterRecView(private val listWayang: ArrayList<wayang>) : RecyclerView
         var _karakterWayang = itemView.findViewById<TextView>(R.id.karakterWayang)
         var _deskripsiWayang = itemView.findViewById<TextView>(R.id.deskripsiWayang)
         var _gambarwayang = itemView.findViewById<ImageView>(R.id.gambarWayang)
-
+        val _btnHapus = itemView.findViewById<Button>(R.id.btnHapus)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -47,6 +51,10 @@ class adapterRecView(private val listWayang: ArrayList<wayang>) : RecyclerView
         holder._deskripsiWayang.setText(wayang.deskripsi)
         Log.d("TEST",wayang.foto)
         Picasso.get().load(wayang.foto).into(holder._gambarwayang)
+
+        holder._btnHapus.setOnClickListener{
+            onItemclickCallback.delData(position)
+        }
         
 
         holder._gambarwayang.setOnClickListener{

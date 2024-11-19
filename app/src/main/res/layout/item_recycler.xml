@@ -1,44 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
 
     <ImageView
         android:id="@+id/gambarWayang"
         android:layout_width="49dp"
         android:layout_height="66dp"
         android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
         android:src="@drawable/ic_android_black_24dp"
-        app:layout_constraintEnd_toStartOf="@+id/namaWayang"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/namaWayang"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:text="NamaWayang"
-        app:layout_constraintStart_toEndOf="@+id/gambarWayang"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/gambarWayang"
+        app:layout_constraintTop_toTopOf="@id/gambarWayang"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/karakterWayang"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="karakterWayang"
-        app:layout_constraintStart_toStartOf="@+id/namaWayang"
-        app:layout_constraintTop_toBottomOf="@+id/namaWayang" />
+        app:layout_constraintStart_toEndOf="@id/gambarWayang"
+        app:layout_constraintTop_toBottomOf="@id/namaWayang"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/deskripsiWayang"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="deskripsiWayang"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gambarWayang"
+        app:layout_constraintBottom_toTopOf="@id/btnHapus" />
+
+    <Button
+        android:id="@+id/btnHapus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="deskripsiWayang"
-        app:layout_constraintStart_toStartOf="@+id/karakterWayang"
-        app:layout_constraintTop_toBottomOf="@+id/karakterWayang" />
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="HAPUS DATA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
